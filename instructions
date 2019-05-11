@@ -1,0 +1,115 @@
+Preparação do ambiente
+
+Instalação do nodeJS para o seu sistema operacional.
+Baixar no site do nodejs.org ou instalar direto pelo terminal do seu sistema operacional,
+as istruções estão na documentação do nodejs.
+
+Após instalar, execute os comandos no seu terminal ou prompt de compando para ver as versões:
+node -v 
+Este comando mostrará a versão do node instalado
+npm -v
+Este comando mostradá a versão do mpm que foi instalado
+
+após executar os procedimentos acima, é preciso criar o diretório onde ficará o projeto.
+Ex: ciar uma pasta chamada api-nodejs.
+mkdir api-nodejs (no termninal do linux e no mac)
+md api-nodejs (no windows) 
+
+após a pasta criada, é preciso acessa-la. Para isso usamos o comando cd
+ex: cd api-nodejs (no windows, mac e linux)
+
+agora a pasta já está preparada para guardar o projeto, neste caso a api.
+
+Para fazer a criação do projeto, é preciso executar o comando:
+
+npm init -y
+
+após executar esse comando, será craido um arquivo chamado package.json, esse arquivo
+guarda algumas instruções de como a aplicação deve se comportar e armazena o nome, versão,
+etc. Mas a principal função desse arquivo é guardar a informação da versãod as dependências
+que serão utilizadas no decorrer do projeto.
+
+Uma depencia que vamos utilziar será a Express. Para isso é preciso instalar com  comando:
+
+npm install Express
+
+após instalada a lib express, aparecerá no package.json a nova depencia seguido da versão
+O express é um microframework que nos ajudará com as rotas da api.
+
+Feito isso, vamos criar o arquivo principal que vai incializar a aplicação. 
+para isso crie um novo arquivo, eu criei com o nome server.js dentro do diretório
+principal que criamos api-nodejs
+
+para codar, utilzarei o vs code pois ele tem várias extensões bacanas que auxiliam muito
+no decorrer do projeto.
+
+Como toda vez que alteramos o arquivo serve.js, é preciso reiniciar o servidor, vamosusar uma 
+ferramenta chamada nodemon. Ela tem a função de reiniciar o servidor toda vez que for alterada 
+uma coisa no código.
+para isso vamos instalar com o comando a seguir:
+
+npm install -D nodemon
+
+esse -D no comando, significa que é uma devDependence, ou seja, é uma depencia que só será
+utilizada no ambiente de desenvolvimento
+
+Para executar o nodemon, é preciso criar um script no package json. dentro do módulo 
+scripts, crie um comando abaixo de "teste"... não esquecer a vírgula do final da linha "teste"!
+
+"dev": "nodemon server.js" 
+
+feito isso, salve o arquivo e volte ao terminal. ao invés de executar o server.js, vamos 
+executar o script que acabamos de criar com o comando: 
+
+npm run dev
+
+o npm run serve para executar o scrips dentro do package.json e pode adicionar quantos quiser.
+
+agora ao salvar, o servidor ja reinicia. basta atualziar a página.
+__________________
+DOCKER
+
+Usar o docker para deixar o mongodb a parte e usar como uma máqina virtual.
+Após instalar o docker no seu sistema, vamos precisar baixar o conteiner do mongodb.
+para isso, execute o comando a seguir: (no linux pode ser necessario sudo su antes)
+
+docker pull mongo
+
+esse comando vai demorar uns minutos pois irá fazer o download de vários arquivs.
+Depois de baixado, vamos dar o nome --name a esa máqina, eu chamei de mongodb mesmo, e fazer 
+o redirecionamento das portas do seu computador para o 
+mongo db, a porta -p padrão é a 27017 e informar qual é a imagem -d que vamos rodar, 
+nesse caso é o mongo então para isso execute o comando: 
+
+docker run --name mongodb -p 27017:27017 -d monto
+
+feito isso, irá gerar um código bem grande.
+
+execute em seguida o comando para ver quais imagens estão rodando:
+
+docker ps 
+
+para ver todas as imagens execute o comando:
+
+docker ps -a
+
+Para iniciar uma imagem, execute o comando:
+
+docker start <nome da imagem>
+ex: docker start mongodb
+
+utilize o robo 3t para conectar e gerenciar o mongodb com interface grafica
+
+____________________
+MONGOOSE
+
+Para instalar o mongoose, execute o comando abaixo:
+
+npm install mongoose
+
+ele instalará mais essa dependência ao projeto e fará com que possamos fazer a conexão
+da aplicação com o banco de dados mongodb
+
+
+
+
