@@ -110,6 +110,10 @@ npm install mongoose
 ele instalará mais essa dependência ao projeto e fará com que possamos fazer a conexão
 da aplicação com o banco de dados mongodb
 
+GIT
+
+git push -u origin master
+
 
 
 
